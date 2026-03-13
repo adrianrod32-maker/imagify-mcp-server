@@ -15,11 +15,10 @@ const API_KEY = process.env.IMAGIFY_API_KEY;
 const PORT = process.env.PORT || 3000;
 
 if (!API_KEY) {
-  console.error("ERROR: Set IMAGIFY_API_KEY in your Glitch environment variables (.env tab)");
-  process.exit(1);
+  console.warn("WARNING: IMAGIFY_API_KEY environment variable is not set — API calls will return errors until configured in Railway Variables tab");
 }
 
-// ─── Imagify API Client ───────────────────────────────────────────────────────
+// ─── Imagify API Client ──────────────────────────────────────────────────────
 
 async function imagifyRequest(endpoint, payload) {
   try {
